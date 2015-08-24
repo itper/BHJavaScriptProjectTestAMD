@@ -1,0 +1,38 @@
+body{
+    color: red;
+}
+p,h1{
+    color: red;
+    font-size: 20px;
+}
+#p1 {
+    color: blue;
+}
+.pp {
+    color: green;
+}
+.pp{
+    padding: 20px;
+    margin: 39px;
+    background: url("../resources/bg.gif") repeat-x;
+}
+a:link{
+    color: green;
+}
+a:visited{
+    color: red;
+    font-size: 20px;
+}
+a:hover{
+    color: blue;
+    font-size: 30px;
+}
+a:active{
+    color: gray;
+}
+span{
+    display: block;
+}
+strong{
+    display: block;
+}

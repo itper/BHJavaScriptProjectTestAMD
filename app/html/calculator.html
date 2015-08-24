@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JavaScript Loan Calculator</title>
+    <style>
+        .output{font-weight: bold;}
+        #payment{text-decoration: underline;}
+        #graph {
+            border: solid black 1px;
+
+            }
+    </style>
+
+</head>
+<body>
+<table>
+    <input id="input1" onchange="save();">
+    <input id = "input2">
+    <p id="log">123123</p>
+</table>
+
+<script>
+    var v1 = "v1";
+function save(){
+    var value = document.getElementById("input1");
+    if(window.localStorage){
+        localStorage.input1 = value.value;
+    }
+    var input2 = document.getElementById("input2");
+    input2.value = localStorage.input1;
+};
+    var fuck = "fuck";
+    window.onload = function(){
+        var log = document.getElementById("log");
+        log.innerText = "log:\n";
+
+
+        var array1 = [];
+        log.innerText+="array1:"+array1+"\n";
+        log.innerText+="func:"+Person+"\n";
+//        alert(this===window);//javascript 的容器 window, 一个顶级对象,全局变量就存在这里
+//        alert(Object.create(Object.prototype));
+        var func1 = function (){
+
+        };
+
+        var isAFunction = func1 instanceof  Function;
+        log.innerText+="isAFunction :"+isAFunction+"\n";
+        log.innerText+="function toString:"+func1.toString()+"\n";
+        log.innerText+="function toString1:"+Object.prototype.toString.call(func1)+"\n";
+
+        var p = {
+            invoke1:function (){
+                var aThis = this;
+                var v1 = "v2";
+                function loog2(a){
+                    log.innerText+="v1:"+this.v1+"v2:"+v1+"\n";
+
+                    log.innerText+="loog+"+this+",this:"+aThis+"callee:"+ arguments.callee+"\n";
+                };
+                log.innerText+="this:"+this+"\n";
+                loog2(1);//作为函数调用,所以函数中的 this 是全局对象或者 undefined
+
+            },
+//            "toString":function(){
+//                return "ppp";
+//            }
+        };
+        var hasOwn = Object.prototype.hasOwnProperty;
+//        delete  p;
+        for(var pp in p){
+            log.innerText+="ppp:"+pp+":"+p[pp]+"\n";
+        }
+        log.innerText+="hasOwnProp:"+ p.hasOwnProperty("toString")+"\n";
+        log.innerText+="hasOwnProp:"+ hasOwn.call(p,"toString")+"\n";
+
+
+        var aaa = (function (){
+            return "hello";
+        })();
+
+
+        log.innerText+="aaa:"+aaa+"\n";
+
+        var pro = Array.prototype;
+        for(var p in pro){
+            log.innerText+="P:"+p+"\n";
+        }
+        function Person(){
+            this.personName = "person";
+            this.toString = function (){
+                return "person";
+            }
+        }
+        function Student(){
+            this.studentName = "student";
+        }
+
+        Student.prototype =  {
+            "st1":"st1"
+        };
+        log.innerText+="student:"+new Student().st1+"\n";
+
+        Student.createStudent = function (){
+            return "hello";
+        };
+        var pro = Student.prototype;
+        for(var p in pro.pro){
+            log.innerText+="p\n";
+        }
+
+
+
+        var User = {
+            "getUserName":function(){
+                return "hello user";
+            }
+        }
+        function User1(name){
+            this.name = name;
+            this.getaaa = aaa;
+            function aaa(){
+                return "aaa";
+            }
+            User1.getA = getA;
+            function getA(){
+                return "getA";
+            }
+        }
+
+        log.innerText+= User.getUserName()+"\n";
+        log.innerText+=(new User1("123")).name+"\n";
+        log.innerText+=(new User1("123")).getaaa();
+        log.innerText+="\n";
+        log.innerText+=User1.getA();
+
+
+
+        //自定义集成函数
+//        var o = {};
+//        o.x = 10010;//如果o没有该属性(o 本身),添加并赋值
+//        var p = inherit(o);
+//        alert("hasOwnProperty:"+ p.hasOwnProperty("x"));
+//        alert("p集成与有一个x=10010 属性的o   未重新赋值之前的x:"+p.x);//查找x属性
+//        alert("p.prototype.x :"+ p.prototype);
+//        p.x = 10;//不会修改原型链的数据,而是覆盖x,意思就是对p 添加一个x属性
+//        alert("hasOwnProperty:"+ p.hasOwnProperty("x"));
+//        alert("p集成与有一个x=10010 属性的o   对父类有的属性进行赋值后:"+p.x);//查找到了p 有x 属性直接返回
+//        delete p.x;
+//        alert("p集成与有一个x=10010 属性的o   删除属性p.x后:"+ p.x);
+//        try{
+//            delete  p.prototype.x;
+//        }catch(e){
+//            alert("exception e"+e);
+//        }
+//        alert("p集成与有一个x 属性的o=10010   删除p.prototype.x:"+ p.x);
+//        //
+//        var pp = Object.create(p);
+//        alert ("pp"+pp.x);
+
+
+        //如果x 是一个访问器 setter, 则p.x 就不是给p添加一个属性,而是调用setter 方法
+        //setter 的结构类似于this._x = value;由于 setter 是p 调用的所以 setter 中的 this
+        //指的是p,p._x 自然也是p 的,所以,修改不会影响到原型链.
+
+//        alert(window.fuck);
+        var value = document.getElementById("input1");
+        var input2 = document.getElementById("input2");
+        value.value = localStorage.input1;
+        input2.value = localStorage.input1;
+//        alert(window.XMLHttpRequest);
+        var url = "http://219.154.18.38:20080";
+        var request = new XMLHttpRequest();
+        request.open("GET",url);
+        request.send(null);
+        request.onreadystatechange = function(){
+//            alert(request.readyState);
+//            alert(request.responseText);
+        }
+        log.innerText+="\n===end===\n";
+    }
+    function inherit(p){
+        if(p==null)throw TypeError();
+        if(Object.create){
+            return Object.create(p);
+        }
+        var t = typeof p;
+        if(t!=="object"  && t!="function")throw  TypeError;
+        function f(){};//一个构造函数
+        f.prototype = p;
+        return new f();
+    }
+</script>
+
+</body>
+</html>
