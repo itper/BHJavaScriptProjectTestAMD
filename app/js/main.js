@@ -12,7 +12,14 @@ require.config({
         //moduleB:'',
         //moduleC:''
         ModuleA1:"ModuleA",
-        ModuleB:"ModuleB"
+        ModuleB:"ModuleB",
+        ModuleC:"ModuleC"
+    },
+    shim:{//不兼容 AMD 规范的
+        'ModuleC':{
+            exports:"C"//指定该模块的暴露值,如果该值不是该模块的暴露,在 require 的回调函数的参数中C1将会是 undefined, 查看 ModuleC 的源码得知,该模块的暴露值是C
+            //deps:['']//依赖的一些库
+        }
     }
 });
 
@@ -21,11 +28,13 @@ require.config({
 var A1,B1;
 require(
     //config 的 key
-    ['ModuleA1',"ModuleB"],
+    ['ModuleA1','ModuleC',"ModuleB"],
     //回调函数,ABC 这些参数对应的对象就是各个模块中的返回值对象.
-    function(A,B) {
+    function(A,C1,B) {
         A.funcA();
         B.funcB();
+        C();//在 Module 中的变量C
+        C1();//该函数的返回值
         A1 = A;
         B1 = B;
         func();
