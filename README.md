@@ -12,6 +12,7 @@
 
 		在HtmlDom中添加script接点.这也是这些模块加载工具的实现,在代码执行完,
 		进入内存之后,移除节点.
+*	参考:http://www.zhihu.com/question/20342350
 *	__require.js__
 		一个异步模块加载工具,模块一般需要实现AMD规范.
 		
