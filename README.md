@@ -59,8 +59,16 @@
 			a.doSomething();
 			b.doSomething();
     	});
-
-	
+*	__G.js__
+		
+		参照Sea.js实现
+		在定义的时候,如果单使用G.js,可以照着api来,如果要基于ng-static,
+		将require,export,module当做全局变量来使用,define中function的内容
+		拿出:
+			var a = require("A.js");
+			exprots = {
+ 		  	 a: a.A;
+			}
 	
 *	__jquery.js__
 *		$.extend (obj1,obj....);将后边对象合并到obj1中
@@ -88,6 +96,38 @@
 *	__undercoser模板技术__
 *
 *	__widget__
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
