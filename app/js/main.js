@@ -23,23 +23,11 @@ require.config({
     }
 });
 
-
-
 var A1,B1;
 require(
     //config 的 key
-    ['ModuleA1','ModuleC',"ModuleB"],
+    ['ModuleC',"ModuleB"],
     //回调函数,ABC 这些参数对应的对象就是各个模块中的返回值对象.
-    function(A,C1,B) {
-        A.funcA();
-        B.funcB();
-        C();//在 Module 中的变量C
-        C1();//该函数的返回值
-        A1 = A;
-        B1 = B;
-        func();
+    function(C1,B) {
     }
 );
-function func(){
-    alert("func"+B1+","+A1);
-}

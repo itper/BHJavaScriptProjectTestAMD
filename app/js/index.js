@@ -1,4 +1,5 @@
 //该函数需要实现 AMD 标准
+alert("index");
 define(function(){
 
     function Person(name,sex){
