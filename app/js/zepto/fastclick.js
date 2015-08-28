@@ -1,4 +1,4 @@
-define("com/mobile/lib/zepto/fastclick.js", [], function (require, exports, module) {
+define("app/js/zepto/fastclick.js", [], function (require, exports, module) {
 /**
  * @preserve FastClick: polyfill to remove click delays on browsers with touch UIs.
  *

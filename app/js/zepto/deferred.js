@@ -1,4 +1,4 @@
-define("com/mobile/lib/zepto/deferred.js", [], function (require, exports, module) {
+define("app/js/zepto/deferred.js", [], function (require, exports, module) {
 //     Zepto.js
 //     (c) 2010-2014 Thomas Fuchs
 //     Zepto.js may be freely distributed under the MIT license.
@@ -9,6 +9,7 @@ define("com/mobile/lib/zepto/deferred.js", [], function (require, exports, modul
   var slice = Array.prototype.slice
 
   function Deferred(func) {
+    alert("deferred");
     var tuples = [
           // action, add listener, listener list, final state
           [ "resolve", "done", $.Callbacks({once:1, memory:1}), "resolved" ],

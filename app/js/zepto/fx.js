@@ -1,4 +1,4 @@
-define("com/mobile/lib/zepto/fx.js", [], function (require, exports, module) {
+define("app/js/zepto/fx.js", [], function (require, exports, module) {
 //     Zepto.js
 //     (c) 2010-2014 Thomas Fuchs
 //     Zepto.js may be freely distributed under the MIT license.

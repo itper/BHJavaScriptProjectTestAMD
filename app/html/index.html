@@ -2,23 +2,71 @@
 <head>
     <meta charset="utf-8">
     <link href="../css/index.css" type="text/css" rel="stylesheet">
-    <script src="../js/g/g.js"></script>
+    <style type="text/css">
+        .ui-hover-list{
+            display: none;
+        }
+        .active .ui-hover-list{
+            display: block
+        }
+    </style>
     <script>
-        G.config('baseUrl', 'http://localhost:63342/BHWebTest/');
-        G.config('alias',{
-            'ModuleC':'app/js/g/ModuleC.js',
-            '$':"app/js//zepto/zepto.cmb.js"
-        });
-        !function(){
-            G.use(['app/js/g/ModuleA.js','app/js/g/ModuleB.js','ModuleC'],function(A,B,C){
-                A.alertA();
-                B.alertB();
-                alert(C.C);
+        var head   = document.head ||
+                document.getElementsByTagName( 'head' )[0] ||
+                document.documentElement;
+
+        var script = document.createElement( 'SCRIPT' );
+        var done = false;
+        script.setAttribute( 'type', "text/javascript" );
+        script.setAttribute( 'charset', 'utf-8' );
+        script.setAttribute( 'src', '../js/g/g.js' );
+        script.setAttribute( 'async', true );
+        script.onload = script.onreadystatechange = function(){
+            if ( !done &&( !this.readyState || this.readyState === "loaded" ||this.readyState === "complete" ) ){
+                done = true;
+                script.onload = script.onreadystatechange = null;
+            }
+            G.config('baseUrl', 'http://localhost:63342/BHWebTest/');
+            G.config('alias',{
+                'ModuleC':'app/js/g/ModuleC.js',
+                "_":"app/js/_/underscore.js",
+                '$':"app/js/zepto/zepto.cmb.js"
             });
-        }();
+            !function(){
+                G.use(['app/js/g/ModuleA.js','app/js/g/ModuleB.js','ModuleC'],function(A,B,C){
+                    console.log(A,B,C);
+                });
+                G.use(['app/js/widgets/widget.js','$'],function(w,$){
+                    w.initWidgets();
+                });
+                G.use(['$'],function($){
+                    var aa = {
+                        'aaa':function(q){
+                            alert("q:"+q);
+                        }
+                    }
+//                    var a = $.Deferred();
+//                    a.resolve(new aa.aaa("hello"));
+                    aa.aaa("123");
+                });
+            }();
+        }
+
+
+        head.appendChild( script );
     </script>
 </head>
 
+<body>
+<div data-widget="app/js/widgets/WidgetTest.js#hoverWidget">
+    <span>当前的标题</span>
+    <ul class="ui-hover-list">
+        <li>标题1</li>
+        <li>标题2</li>
+        <li>标题3</li>
+    </ul>
+</div>
+</body>
 <!--<title>BHWebTest</title>-->
 
 <!--<body>-->
