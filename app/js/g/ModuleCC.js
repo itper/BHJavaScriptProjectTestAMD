@@ -6,3 +6,4 @@ define("app/js/g/ModuleCC.js",[],function(){
         "CC":"hahaha cc"
     };
 });
+

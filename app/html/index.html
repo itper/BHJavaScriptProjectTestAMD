@@ -6,7 +6,8 @@
     <script>
         G.config('baseUrl', 'http://localhost:63342/BHWebTest/');
         G.config('alias',{
-            'ModuleC':'app/js/g/ModuleC.js'
+            'ModuleC':'app/js/g/ModuleC.js',
+            '$':"app/js//zepto/zepto.cmb.js"
         });
         !function(){
             G.use(['app/js/g/ModuleA.js','app/js/g/ModuleB.js','ModuleC'],function(A,B,C){
