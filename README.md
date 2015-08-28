@@ -69,7 +69,7 @@
 			exprots = {
  		  	 a: a.A;
 			}
-	
+			
 *	__jquery.js__
 *		$.extend (obj1,obj....);将后边对象合并到obj1中
 	
