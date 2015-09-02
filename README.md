@@ -97,3 +97,11 @@
 *	__undercoser模板技术__
 *
 *	__widget__
+*	
+*	__isFunction__ 类型判断
+*	
+	```javascript
+	function isFunction(func) {
+	  return Object.prototype.toString.call(func) === '[object Function]'
+	}
+	```
