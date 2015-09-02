@@ -100,8 +100,8 @@
 *	
 *	__isFunction__ 类型判断
 *	
-	`javascript
+```javascript
 	function isFunction(func) {
 	  return Object.prototype.toString.call(func) === '[object Function]'
 	}
-	`
+```
